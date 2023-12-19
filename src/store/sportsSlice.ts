@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
-import { Game, Player, Team } from '../types';
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { Game, Player, Team } from "../types";
 
 // Define the initial state using that type
 const initialState: Array<Game> = [];
 
 export const sportsSlice = createSlice({
-  name: 'sports',
+  name: "sports",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
@@ -17,7 +17,10 @@ export const sportsSlice = createSlice({
         ...sports,
         teams: sports.teams.map((team: Team) => ({
           ...team,
-          players: [{ name: '', age: '' }, ...team.players],
+          players: [
+            { name: "", age: "", team_name: "", game: "", playerIndex: 0 },
+            ...team.players,
+          ],
         })),
       }));
     },
@@ -51,7 +54,13 @@ export const sportsSlice = createSlice({
       const teamIndex = state[gameIndex].teams.findIndex(
         (team: Team) => team.team_name === team_name
       );
-      state[gameIndex].teams[teamIndex].players.unshift({ name: '', age: '' });
+      state[gameIndex].teams[teamIndex].players.unshift({
+        name: "",
+        age: "",
+        team_name: "",
+        game: "",
+        playerIndex: 0,
+      });
     },
   },
 });

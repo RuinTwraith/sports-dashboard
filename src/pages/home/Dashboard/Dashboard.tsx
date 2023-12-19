@@ -33,7 +33,7 @@ function Dashboard() {
           {teams.map(({ team_name, players }: Team, teamIndex: number) => (
             <Accordion
               defaultOpen
-              title={`${team_name} (${players.length})`}
+              title={`${team_name} (${players.length - 1})`}
               key={`${game}_${team_name}`}
               classes="mb-4"
             >

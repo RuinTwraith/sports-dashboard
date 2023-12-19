@@ -5,9 +5,9 @@ import {
   updatePlayerDetails,
   addNewPlayerDetails,
 } from '../../store/sportsSlice';
-import { Player } from '../../types';
+import { Player as Playertype } from '../../types';
 
-const Player = ({ name, age, playerIndex, team_name, game }: Player) => {
+const Player = ({ name, age, playerIndex, team_name, game }: Playertype) => {
   const dispatch = useAppDispatch();
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {

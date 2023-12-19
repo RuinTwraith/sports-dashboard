@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
 
-type Props = {
+type Props = {  
+  /* title of the Accordion */
   title: string;
+  /* children props */
   children: ReactNode;
+  /* if true, opens the accordion at render */
   defaultOpen?: boolean;
+  /* classes to add styles to the root of Accordion */
   classes?: string;
 };
 
